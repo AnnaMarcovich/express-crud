@@ -24,6 +24,7 @@ app.get("/tasks/:taskId", (req, res) => {
     const task = parsedData.find((task) => {
       return task.id.toString() === req.params.taskId;
     });
+    log.magenta(task);
     res.set("Content-Type", "application/json").send(task);
   })().catch(log.error);
 });
